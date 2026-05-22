@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: tyagi-pod
+
+spec:
+  containers:
+    - name: tyagi-veg
+      image: himalayat/veg:v1.0
+      ports:
+        - containerPort: 3000
