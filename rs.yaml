@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata: 
   name: tyagi-rs
-  label:
+  labels:
     app: web
 
 spec:
-  replica: 3
+  replicas: 3
   selector: 
     matchLabels:
       web: nginx-cont
   
-  templcate: 
+  template: 
     metadata:
       labels: 
         web: nginx-cont
     spec:
       containers:
-        - name: nginx_container
+        - name: nginx-container
           image: nginx
-          port: 
+          ports: 
             - containerPort: 80
