@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: tyagi-config
   labels: 
     first: app
 spec: # Behaviour of replicaset
@@ -15,7 +15,7 @@ spec: # Behaviour of replicaset
         app: web
     spec: # behavour of pod
       containers:
-        - name: tyagi-container
-          image: nginx
+        - name: tyagi-shopkart
+          image: himalayat/shopkart:v1.0
           ports:
-            - containerPort: 80
+            - containerPort: 8080
