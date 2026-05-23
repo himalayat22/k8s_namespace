@@ -19,3 +19,17 @@ spec: # Behaviour of replicaset
           image: himalayat/shopkart:v1.0
           ports:
             - containerPort: 8080
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: tyagi-service
+spec:
+  selector: 
+    app: web
+ports:
+  - protocol: Tcp
+    port: 85
+    targetPort: 80
+type: ClusterIP
