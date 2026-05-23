@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels: 
+    first: app
+spec: # Behaviour of replicaset
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels: 
+        app: web
+    spec: # behavour of pod
+      containers:
+        - name: tyagi-container
+          image: nginx
+          ports:
+            - containerPort: 80
