@@ -1,36 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tyagi-config
+  name: tyagi-config1
   labels:
     first: app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: shopkart
+      app: nginx
   template:
     metadata:
       labels:
-        app: shopkart
+        app: nginx
     spec:
       containers:
-        - name: tyagi-shopkart
-          image: himalayat/shopkart:v1.0
+        - name: tyagi-nginx
+          image: nginx
           ports:
-            - containerPort: 8080
+            - containerPort: 80
 
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: tyagi-service
+  name: tyagi-service1
 spec:
   selector:
-    app: shopkart
+    app: nginx
   ports:
     - protocol: TCP
       port: 85
-      targetPort: 8080
-  type: ClusterIP
+      targetPort: 80
+      nodePort: 30007
+  type: NodePort
