@@ -7,6 +7,8 @@ metadata:
 spec:
   parentRefs:
     - name: tyagi-gateway
+  hostnames:
+    - "*"
   rules:
     - matches:
         - path:
