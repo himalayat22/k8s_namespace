@@ -1,23 +1,15 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
-
 metadata:
   name: tyagi-http
-
 spec:
   parentRefs:
-    - name: tyagi-gateway
+  - name: tyagi-gateway
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /api/shopkart
-      filters:
-        - type: URLRewrite
-          urlRewrite:
-            path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /
-      backendRefs:
-        - name: tyagi-service
-          port: 85
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: tyagi-service
+      port: 85
