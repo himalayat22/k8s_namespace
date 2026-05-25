@@ -7,8 +7,6 @@ metadata:
 spec:
   parentRefs:
     - name: tyagi-gateway
-  hostnames:
-    - "*"
   rules:
     - matches:
         - path:
@@ -19,7 +17,7 @@ spec:
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacePrefixMatch: /shopkart
+              replacePrefixMatch: /
       backendRefs:
         - name: tyagi-service
           port: 85
