@@ -27,7 +27,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: tyagi-config
-              secretRef:
+            - secretRef:
                 name: tyagi-secret
 
 ---
